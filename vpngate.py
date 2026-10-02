@@ -704,3 +704,9 @@ if __name__ == "__main__":
         raise
     except Exception as exc:
         die(f"程序异常: {type(exc).__name__}: {exc}")
+      - name: Get VPN Gate nodes + check via Cloudflare Worker + build page
+        run: python vpngate.py; echo "PYTHON_EXIT=$?"
+        env:
+          CHECK_WORKER: "shturl.cc/G9ZlDcIrLN4JtbKAp57qYt0IH2jnGaJIPStbz"
+          CHECK_CONCURRENCY: "16"
+          CHECK_TIMEOUT: "60"
